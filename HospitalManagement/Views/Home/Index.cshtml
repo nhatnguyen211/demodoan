@@ -1,0 +1,411 @@
+﻿@using BELibrary.Entity
+@{
+    var doctors = (List<Doctor>)ViewBag.Doctors ?? new List<Doctor>();
+    var faculties = (List<Faculty>)ViewBag.Faculties ?? new List<Faculty>();
+    var latestPosts = (List<Article>)ViewBag.LatestPosts ?? new List<Article>();
+
+}
+@functions {
+    public string TruncateString(string value, int maxLength)
+    {
+        if (string.IsNullOrEmpty(value)) return value;
+        return value.Length <= maxLength ? value : value.Substring(0, maxLength) + "...";
+    }
+}
+<!--Tab-->
+<div class="home-banner">
+    <div class="dot-slider slider">
+        <div class="profile-widget">
+            <div class="pro-img">
+                <a href="javascript:void(0);">
+                    <img class="img-fluid" src="~/FileUploads/imghome/slider-4.jpg" />
+                </a>
+            </div>
+        </div>
+        <div class="profile-widget">
+            <div class="pro-img">
+                <a href="javascript:void(0);">
+                    <img class="img-fluid" src="~/FileUploads/imghome/slider-5.jpg" />
+                </a>
+            </div>
+        </div>
+        <div class="profile-widget">
+            <div class="pro-img">
+                <a href="javascript:void(0);">
+                    <img class="img-fluid" src="~/FileUploads/imghome/slider-6.jpg" />
+                </a>
+            </div>
+        </div>
+        <div class="profile-widget">
+            <div class="pro-img">
+                <a href="javascript:void(0);">
+                    <img class="img-fluid" src="~/FileUploads/imghome/slider-7.jpg" />
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="banner-wrapper doc-form">
+            <div class="app-form">
+                <h2>Search Doctor <span class="header-highlight"> Make an Appointment </span></h2>
+                <form action="/doctor/search" class="doctor-search-form">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-6">
+                            <div class="form-group">
+                                <div class="form-custom">
+                                    <input type="text" class="form-control" value="" placeholder="Search Doctor" name="query">
+                                    <i class="far fa-compass"></i>
+                                </div><br />
+                                <span> Etc: ...</span>
+                            </div>
+                        </div>
+                        <div class="col-md-5 col-lg-4">
+                            <button type="submit" class="btn banner-btn"><i class="fas fa-search"></i> <span>Search</span></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Tab-->
+<!--Tab-->
+<section class="category-sec">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="set-category">
+                    <div class="d-flex align-items-center">
+                        <div class="img-holder">
+                            <a href="javascript:void(0);"><img src="~/FileUploads/imghome/set-cat-01.png" /></a>
+                        </div>
+                        <div class="info-holder">
+                            <h3>Bác Sĩ</h3>
+                            <p>We hire the best specialists to deliver top-notch diagnostic services for you.</p>
+                            <a href="/doctor" class="book-now">Xem thêm<i class="fas fa-long-arrow-alt-right"></i></a>
+                        </div>
+                    </div>
+                    <h1>01</h1>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="set-category light">
+                    <div class="d-flex align-items-center">
+                        <div class="img-holder">
+                            <a href="javascript:void(0);"><img src="~/FileUploads/imghome/set-cat-02.png" /></a>
+                        </div>
+                        <div class="info-holder">
+                            <h3>Chuyên Khoa</h3>
+                            <p>We provide the a wide range of medical services, so every person could have the opportunity.</p>
+                            <a href="/doctor" class="book-now">Xem thêm<i class="fas fa-long-arrow-alt-right"></i></a>
+                        </div>
+                    </div>
+                    <h1>02</h1>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="set-category lighter">
+                    <div class="d-flex align-items-center">
+                        <div class="img-holder">
+                            <a href="javascript:void(0);"><img src="~/FileUploads/imghome/set-cat-03.png" /></a>
+                        </div>
+                        <div class="info-holder">
+                            <h3>Tin Tức</h3>
+                            <p>We use the first-class medical equipment for timely diagnostics of various diseases.</p>
+                            <a href="/article" class="book-now">Xem thêm<i class="fas fa-long-arrow-alt-right"></i></a>
+                        </div>
+                    </div>
+                    <h1>03</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Tab-->
+<!--Tab-->
+<section class="browse-speciality">
+    <div class="container">
+        <div class="sec-header">
+            <h2>Chuyên Khoa</h2>
+            <span class="bottom-border"></span>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="browse-slider slider">
+                    <!---->
+                        <div class="profile-widget browse-widget">
+                            <img src="~/FileUploads/imghome/browse-01.jpg" />
+                            <div class="overlay">
+                                <h3>Chuyên Khoa 1</h3>
+                                <p style="color:white">MK Clinic</p>
+                                <a href="#" class="arrows"><i class="fas fa-long-arrow-alt-right"></i></a>
+                            </div>
+                        </div>
+                        <!---->
+                        <div class="profile-widget browse-widget">
+                            <img src="~/FileUploads/imghome/browse-03.jpg" />
+                            <div class="overlay">
+                                <h3>Chuyên Khoa 1</h3>
+                                <p style="color:white">MK Clinic</p>
+                                <a href="#" class="arrows"><i class="fas fa-long-arrow-alt-right"></i></a>
+                            </div>
+                        </div>
+                        <!---->
+                        <div class="profile-widget browse-widget">
+                            <img src="~/FileUploads/imghome/browse-05.jpg" />
+                            <div class="overlay">
+                                <h3>Chuyên Khoa 1</h3>
+                                <p style="color:white">MK Clinic</p>
+                                <a href="#" class="arrows"><i class="fas fa-long-arrow-alt-right"></i></a>
+                            </div>
+                        </div>
+                        <!---->
+                        <div class="profile-widget browse-widget">
+                            <img src="~/FileUploads/imghome/browse-01.jpg" />
+                            <div class="overlay">
+                                <h3>Chuyên Khoa 1</h3>
+                                <p style="color:white">MK Clinic</p>
+                                <a href="#" class="arrows"><i class="fas fa-long-arrow-alt-right"></i></a>
+                            </div>
+                        </div>
+                        <!---->
+                        <div class="profile-widget browse-widget">
+                            <img src="~/FileUploads/imghome/browse-02.jpg" />
+                            <div class="overlay">
+                                <h3>Chuyên Khoa 1</h3>
+                                <p style="color:white">MK Clinic</p>
+                                <a href="#" class="arrows"><i class="fas fa-long-arrow-alt-right"></i></a>
+                            </div>
+                        </div>
+                        <!---->
+                        <div class="profile-widget browse-widget">
+                            <img src="~/FileUploads/imghome/browse-04.jpg" />
+                            <div class="overlay">
+                                <h3>Chuyên Khoa 1</h3>
+                                <p style="color:white">MK Clinic</p>
+                                <a href="#" class="arrows"><i class="fas fa-long-arrow-alt-right"></i></a>
+                            </div>
+                        </div>
+                        <!---->
+                        <div class="profile-widget browse-widget">
+                            <img src="~/FileUploads/imghome/browse-03.jpg" />
+                            <div class="overlay">
+                                <h3>Chuyên Khoa 1</h3>
+                                <p style="color:white">MK Clinic</p>
+                                <a href="#" class="arrows"><i class="fas fa-long-arrow-alt-right"></i></a>
+                            </div>
+                        </div>
+                        <!---->
+                        <div class="profile-widget browse-widget">
+                            <img src="~/FileUploads/imghome/browse-01.jpg" />
+                            <div class="overlay">
+                                <h3>Chuyên Khoa 1</h3>
+                                <p style="color:white">MK Clinic</p>
+                                <a href="#" class="arrows"><i class="fas fa-long-arrow-alt-right"></i></a>
+                            </div>
+                        </div>
+                        <!---->
+                        <div class="profile-widget browse-widget">
+                            <img src="~/FileUploads/imghome/browse-02.jpg" />
+                            <div class="overlay">
+                                <h3>Chuyên Khoa 1</h3>
+                                <p style="color:white">MK Clinic</p>
+                                <a href="#" class="arrows"><i class="fas fa-long-arrow-alt-right"></i></a>
+                            </div>
+                        </div>
+                        <!---->
+                        <div class="profile-widget browse-widget">
+                            <img src="~/FileUploads/imghome/browse-03.jpg" />
+                            <div class="overlay">
+                                <h3>Chuyên Khoa 1</h3>
+                                <p style="color:white">MK Clinic</p>
+                                <a href="#" class="arrows"><i class="fas fa-long-arrow-alt-right"></i></a>
+                            </div>
+                        </div>
+                        <!---->
+                        <div class="profile-widget browse-widget">
+                            <img src="~/FileUploads/imghome/browse-04.jpg" />
+                            <div class="overlay">
+                                <h3>Chuyên Khoa 1</h3>
+                                <p style="color:white">MK Clinic</p>
+                                <a href="#" class="arrows"><i class="fas fa-long-arrow-alt-right"></i></a>
+                            </div>
+                        </div>
+                        <!---->
+                        <div class="profile-widget browse-widget">
+                            <img src="~/FileUploads/imghome/browse-05.jpg" />
+                            <div class="overlay">
+                                <h3>Chuyên Khoa 1</h3>
+                                <p style="color:white">Văn Hóa</p>
+                                <a href="#" class="arrows"><i class="fas fa-long-arrow-alt-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Tab-->
+<section class="section section-doctor">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="section-header ">
+                    <h2>Book Our Doctor</h2>
+                    <p>Lorem Ipsum is simply dummy text </p>
+                </div>
+                <div class="about-content">
+                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum.</p>
+                    <p>web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes</p>
+                    <a href="javascript:;">Read More..</a>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="doctor-slider slider">
+
+                    @foreach (var doctor in doctors)
+                    {
+                        <div class="profile-widget" style="min-height: 600px;">
+                            <div class="doc-img">
+                                <a href="/doctor/detail?id=@doctor.Id">
+                                    <img class="img-fluid" alt="User Image" src="@doctor.Avatar">
+                                </a>
+                                <a href="javascript:void(0)" class="fav-btn">
+                                    <i class="far fa-bookmark"></i>
+                                </a>
+                            </div>
+                            <div class="pro-content" style="min-height: 285px;">
+                                <h3 class="title">
+                                    <a href="/doctor/detail?id=@doctor.Id">@doctor.Name</a>
+                                    <i class="fas fa-check-circle verified"></i>
+                                </h3>
+                                <p class="speciality">@doctor.Descriptions</p>
+                                <div class="rating">
+                                    <i class="fas fa-star filled"></i>
+                                    <i class="fas fa-star filled"></i>
+                                    <i class="fas fa-star filled"></i>
+                                    <i class="fas fa-star filled"></i>
+                                    <i class="fas fa-star filled"></i>
+                                    <span class="d-inline-block average-rating">(17)</span>
+                                </div>
+                                <ul class="available-info">
+                                    <li>
+                                        <i class="fas fa-map-marker-alt"></i> @doctor.Address
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-dashboard"></i> @doctor.Faculty.Name
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="control">
+                                <div class="row row-sm">
+                                    <div class="col-6">
+                                        <a href="/doctor/detail?id=@doctor.Id" class="btn view-btn">View Profile</a>
+                                    </div>
+                                    <div class="col-6">
+                                        <a href="javascript:void(0)" onclick="bookNow('@doctor.Id')" class="btn book-btn">Book Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section section-features">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-5 features-img">
+                <img src="~/Content/theme/img/features/feature.png" class="img-fluid" alt="Feature">
+            </div>
+            <div class="col-md-7">
+                <div class="section-header">
+                    <h2 class="mt-2">Availabe Features in Our Clinic</h2>
+                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. </p>
+                </div>
+                <div class="features-slider slider">
+
+                    <div class="feature-item text-center">
+                        <img src="~/Content/theme/img/features/feature-01.jpg" class="img-fluid" alt="Feature">
+                        <p>Patient Ward</p>
+                    </div>
+
+                    <div class="feature-item text-center">
+                        <img src="~/Content/theme/img/features/feature-02.jpg" class="img-fluid" alt="Feature">
+                        <p>Test Room</p>
+                    </div>
+
+                    <div class="feature-item text-center">
+                        <img src="~/Content/theme/img/features/feature-03.jpg" class="img-fluid" alt="Feature">
+                        <p>ICU</p>
+                    </div>
+
+                    <div class="feature-item text-center">
+                        <img src="~/Content/theme/img/features/feature-04.jpg" class="img-fluid" alt="Feature">
+                        <p>Laboratory</p>
+                    </div>
+
+                    <div class="feature-item text-center">
+                        <img src="~/Content/theme/img/features/feature-05.jpg" class="img-fluid" alt="Feature">
+                        <p>Operation</p>
+                    </div>
+
+                    <div class="feature-item text-center">
+                        <img src="~/Content/theme/img/features/feature-06.jpg" class="img-fluid" alt="Feature">
+                        <p>Medical</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Tab-->
+<!--Tab-->
+<section class="blogs-section">
+    <div class="container">
+        <div class="sec-header">
+            <h2>Tin Tức Nổi Bật</h2>
+            <span class="bottom-border"></span>
+        </div>
+        <div class="row">
+            @foreach (var art in latestPosts)
+            {
+                <div class="col-md-6 col-lg-3">
+                    <div class="blog-wrapper">
+                        <div class="wrap-image">
+                            <a href="/article/detail?id=@art.Id">
+                                <img src="@art.Image" alt="@art.Title" style="max-height: 400px;" />
+                            </a>
+                        </div>
+                        <div class="wrap-content">
+                            <div class="d-flex">
+                                <span class="sp-title">Nổi bật</span>
+                                <div class="post-author">
+                                    <a href="#">
+                                        <img src="~/Content/theme/img/ava.jpg" alt="Post Author">
+                                        <span>@art.ModifiedBy</span>
+                                    </a>
+                                </div>
+                                <p class="date-cart"><span>@art.CreatedDate</span></p>
+                            </div>
+                            <div class="wrap-content-body">
+                                <h3 style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><a href="/article/detail?id=@art.Id">@art.Title</a></h3>
+                                <p>@TruncateString(art.Description, 50)</p>
+                                <a href="/article/detail?id=@art.Id" class="read-txt">Xem thêm</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+@section Scripts
+{
+    <script src="~/Content/theme/js/slick.js"></script>
+    <script src="~/Content/theme/js/script.js"></script>
+} 
